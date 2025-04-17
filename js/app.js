@@ -39,3 +39,31 @@ function loadChapters(subject) {
         </ul>
     `;
 }
+// Initialize sample data (run once)
+async function initializeFirestore() {
+  const userId = auth.currentUser.uid;
+  
+  // 1. Create user document
+  await db.collection("users").doc(userId).set({
+    email: auth.currentUser.email,
+    subjects: {
+      Physics: { progress: 0, lastRevised: null },
+      Chemistry: { progress: 0, lastRevised: null },
+      Maths: { progress: 0, lastRevised: null },
+      Biology: { progress: 0, lastRevised: null }
+    }
+  });
+
+  // 2. Add sample Physics topic
+  await db.collection("topics").add({
+    subject: "Physics",
+    chapter: "Electromagnetism",
+    title: "Faraday's Law",
+    content: "NCERT theory content goes here...",
+    problems: [],
+    mindmapUrl: ""
+  });
+}
+
+// Call this once during development
+// initializeFirestore();  // Uncomment to run, then comment again
