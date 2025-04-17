@@ -1,0 +1,24 @@
+{
+  "__collections__": {
+    "users": {
+      "demo-user-123": {
+        "email": "student@example.com",
+        "__collections__": {
+          "progress": {
+            "topic-1": {
+              "lastRevised": "2023-07-20T00:00:00Z",
+              "mastery": 0.8
+            }
+          }
+        }
+      }
+    },
+    "topics": {
+      "physics-em-1": {
+        "subject": "Physics",
+        "chapter": "Electromagnetism",
+        "content": "NCERT theory text..."
+      }
+    }
+  }
+}
